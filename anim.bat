@@ -15,7 +15,7 @@ set "decEnable=1"
 	REM enable or disable decimals
 set /a "decStart=0"
 set /a "decEnd=99"
-set /a "decSteps=23"
+set /a "decSteps=10"
 	REM batch can't process float values, we're using a loop within a loop to make our own decimals
 
 
