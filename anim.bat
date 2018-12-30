@@ -9,23 +9,27 @@ set vString=anim
 set output=out.cfg
 
 	set dvar[0]=r_lightTweakSunDirection
-	set start[0]=30 240 0
-	set end[0]=-89 240 0
+	set start[0]=-45 0 0
+	set end[0]=-45 360 0
 	
-	set dvar[1]=r_lightTweakSunLight
-	set start[1]=0
-	set end[1]=2
+	set dvar[1]=cg_fov
+	set start[1]=80
+	set end[1]=65
 
-set steps=500
+set steps=250
 	REM no more than 9999 steps
-set wait=1
-
+set wait=2
+set looping=0
+	REM WARNING: LOOPING WILL PREVENT YOU FROM EXECUTING ANY OTHER COMMANDS, INCLUDING /QUIT
 
 set /a "numDvars=-1" & for /f "tokens=2 delims==" %%a in ('set dvar[') do ( set /a "numDvars+=1" )
+if !looping! == 0 (
+	set "lp=;" 
+) else ( set "lp=vstr !vString!1;" )
 for /l %%a in (0,1,!numDvars!) do (
 	set endLine=!endLine!!dvar[%%a]! !start[%%a]!;
 )
-set endLine=!endLine!^"
+set endLine=!endLine!
 set /a "prcnt=!steps!/50"
 set bar=^|
 set /a "l=0"
@@ -191,7 +195,7 @@ echo.
 echo                !bar!^|
 echo                100%%
 echo. 
-set endLine=seta !vString!!vstr! ^"wait !wait!;!endLine!
+set endLine=seta !vString!!vstr! ^"wait !wait!;!endLine!!lp!^"
 echo !endLine! >> "!output!"
 echo	Finished writing to !output!
 pause >nul
