@@ -21,11 +21,11 @@ Time in ms (relative to game performance) between each step/frame
 `set looping=0`
 Call first variabe string at the end of the final vstr (making the sequence loop), not recommended as it will not allow you to perform any other in-game actions while looping. ending this loop can only be done using a forced shut down. 
 ```
-	set dvar[0]=r_lightTweakSunDirection
-	set start[0]=-45 0 0
-	set end[0]=-45 360 0
-	
-	set dvar[1]=cg_fov
-	set start[1]=80
-	set end[1]=65
- ```
+set dvar[0]=r_lightTweakSunDirection
+set start[0]=-45 0 0
+set end[0]=-45 360 0
+
+set dvar[1]=cg_fov
+set start[1]=80
+set end[1]=65
+ ```The dvars above
