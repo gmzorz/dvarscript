@@ -28,4 +28,5 @@ set end[0]=-45 360 0
 set dvar[1]=cg_fov
 set start[1]=80
 set end[1]=65
- ```The dvars above
+```
+Set start and end of the dvars you wish to use, but do not use decimals (only round numbers).
