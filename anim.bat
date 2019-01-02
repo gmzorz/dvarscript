@@ -7,7 +7,14 @@ REM unfortunately does not support decimals on input... but does smoothe out the
 set bindKey=F11
 set vString=anim
 set output=out.cfg
-
+set steps=250
+	REM no more than 9999 steps
+set wait=2
+set looping=0
+	REM WARNING: LOOPING WILL PREVENT YOU FROM EXECUTING ANY OTHER COMMANDS, INCLUDING /QUIT
+	
+:: Dvars go here
+	
 	set dvar[0]=r_lightTweakSunDirection
 	set start[0]=-45 0 0
 	set end[0]=-45 360 0
@@ -15,12 +22,7 @@ set output=out.cfg
 	set dvar[1]=cg_fov
 	set start[1]=80
 	set end[1]=65
-
-set steps=250
-	REM no more than 9999 steps
-set wait=2
-set looping=0
-	REM WARNING: LOOPING WILL PREVENT YOU FROM EXECUTING ANY OTHER COMMANDS, INCLUDING /QUIT
+	
 
 set /a "numDvars=-1" & for /f "tokens=2 delims==" %%a in ('set dvar[') do ( set /a "numDvars+=1" )
 if !looping! == 0 (
